@@ -1,0 +1,631 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Koder.Mais1Code</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0ae22f25-0184-4ce9-ba40-52185bacf20a" class="page sans"><header><h1 class="page-title">Koder.Mais1Code</h1></header><div class="page-body"><p id="769fd7ce-8b00-4859-a296-1781da89bb34" class="">É uma <strong>plataforma </strong>de <strong>oportunização </strong>para <strong>jovens/adultos</strong> para <strong>desenvolver habilidades técnicas</strong> que os preparem para a entrada no <strong>mercado de trabalho brasileiro</strong>.</p><p id="901ae89f-3566-41a3-ac3b-26c408f30e05" class="">O maior objetivo aqui é desenvolver uma <strong>intuição computacional</strong> de base que possibilite a preparação para:</p><ul id="01947f96-ab95-4d13-a172-4f026f98260f" class="bulleted-list"><li><strong>Empreender</strong> digitalmente, compreendendo as ferramentas de criação de <strong>websites</strong> e <strong>aplicativos</strong>;</li></ul><ul id="0a011131-83ee-4093-b968-94c0d0e43c47" class="bulleted-list"><li><strong>Estar apto</strong> a prestar <strong>serviços de programação</strong> como <strong>freelancer </strong>ou numa <strong>vaga de trabalho</strong> na posição de <strong>júnior</strong>.</li></ul><h1 id="7ae6089d-9820-43f6-b1a6-a17768caa3c5" class="">Proposta</h1><ul id="9ecbab8a-cce1-4868-aecd-ab7ba8933481" class="bulleted-list"><li><strong>Uso de tecnologias acessíveis</strong> para <strong>demonstrar práticas</strong> que podemos executar juntos e assim adquirir as <strong>primeiras percepções</strong> dos mecanismos de <strong>algoritmos</strong>. Proponho <strong>ambientes de programação com nenhuma instalação</strong> de recursos extras, como acontece em ambientes 100% online interativos.<ul id="5896177e-5856-4271-afe0-ddb73485107f" class="bulleted-list"><li><strong>Como promover</strong>? Através de uso do <a href="https://jsfiddle.net/">jsfiddle</a> ou <a href="https://scrimba.com/">scrimba</a>. Acredito que seja um ponto de partida muito simples para se adquirir as primeiras intuições computacionais para o dia-a-dia.</li></ul></li></ul><ul id="e7e17062-58a0-4067-933f-11afcb974269" class="bulleted-list"><li><strong>Preparação para vagas de fullstack júnior</strong>. As habilidades de um fullstack júnior possibilitam empreender, trabalhar como freelancer e trabalhar numa grande diversidade de atividades de equipes de programação profissionais, sejam fazendo apps e até mesmo projetando negócios digitais.<ul id="43b72510-b516-4676-b63f-432abc209699" class="bulleted-list"><li><strong>Como promover</strong>? Através de práticas de codificação de tecnologias de frontend, backend e de forma avançada Cloud e DevOps. Aqui eu irei iniciar lições práticas de <strong>Tooling</strong> para criação de ambientes básicos de frontend local com <a href="https://code.visualstudio.com/">vscode</a>, remoto com <a href="https://codesandbox.io/">Facebook CodeSandbox</a>. Backend é possível ser feito com o <a href="https://glitch.com/">Glitch</a> (dos criadores do Trello e iniciativa da <a href="https://www.blackgirlscode.com/">Black Girls Code</a> por Kimberly Bryant).</li></ul><p id="23cb1360-b9bf-4fbb-8165-065cd656d125" class="">
+</p></li></ul><figure id="21692aec-0d66-4079-9a21-b147dbc04010" class="image"><a href="Koder%20Mais1Code%2021692aec0d6640799a21b147dbc04010/gif3.gif"><img style="width:672px" src="Koder%20Mais1Code%2021692aec0d6640799a21b147dbc04010/gif3.gif"/></a><figcaption><mark class="highlight-pink">jsfiddle em ação</mark></figcaption></figure><p id="7a451eaa-fcc3-48ff-9a3a-bba4f111c4f2" class="">
+</p><ul id="0c6b90cb-4dc5-4664-a772-e79867ef7781" class="bulleted-list"><li><strong>Ninguém é uma caixa vazia</strong>. Temos histórias e experimentações pessoais anteriores. Quero conhecer mais de perto a vida da pessoa e mostrar que pensar em algoritmos é apenas saber dividir bem alguma tarefa e organizar da forma mais simples e direta possível para criar novas experiências de se ver o mundo de hoje.<ul id="f32a9cb4-338d-47cd-8066-41d207c4994e" class="bulleted-list"><li><strong>Como promover</strong>? Através de um primeiro bate-papo para eu conhecer a história de vida da pessoa e ela conhecer um pouco da minha. Depois eu começo uma explicação sobre os caminhos possíveis da computação na vida dela, a jornada que ela pode trilhar. Chamo isso de <strong>First Meeting</strong>.<figure id="74430b0a-8dc0-41b9-9e63-8386e37eb40d" class="link-to-page"><a href="Koder%20Mais1Code%2021692aec0d6640799a21b147dbc04010/First%20Meeting%2074430b0a8dc041b99e638386e37eb40d.html">First Meeting</a></figure></li></ul></li></ul><ul id="ff02c32e-0ab0-40f6-8ea8-67a2161fe4ad" class="bulleted-list"><li><strong>Evolução da prática com montagem de portfólio pessoal</strong>. A pessoa vai ser instruída a criar seu profile em redes sociais de programadores como GitHub e publicar repositórios com códigos e projetos desenvolvidos. Utilizar também o <a href="https://sites.google.com/">Google Sites</a> para montar <strong>páginas pessoais</strong> com o conteúdo criado para chamar atenção de possíveis <strong>recrutadores</strong>.</li></ul><ul id="f7b487f4-3e0c-4aca-829e-ff5992b62f03" class="bulleted-list"><li><strong>Colocação em grupos da </strong><strong><a href="https://rocketseat.com.br/">Rocket Seat</a></strong>. A Rocket Seat tem materiais e treinamentos avançados excelentes e grupos de redes sociais que pode alavancar a carreira de um fullstack. O foco de formação profissional deles é Full Stack.<p id="8aa8a59d-40bf-478e-807f-60299b7d4e30" class="">
+</p><figure id="aeecda88-e3f7-4fb3-9a5d-e72deea56fee" class="image"><a href="Koder%20Mais1Code%2021692aec0d6640799a21b147dbc04010/gif4.gif"><img style="width:768px" src="Koder%20Mais1Code%2021692aec0d6640799a21b147dbc04010/gif4.gif"/></a><figcaption>Desenvolvendo um app em React Native.</figcaption></figure></li></ul><h1 id="ee65cb59-d20a-400b-9fe6-66cdd6f0f2b2" class="">Currículo Fullstack</h1><ul id="098d1fc3-4f5e-4d24-bad9-f55bdbcd80a9" class="bulleted-list"><li>Stack, Tecnologias e Linguagens propostas:<ul id="d0dcbfa0-0ce6-42de-9d81-cdbf3c8ac14c" class="toggle"><li><details open=""><summary>Frontend: </summary><ul id="c78dc41d-9355-4027-bbe9-adb13e5266d4" class="bulleted-list"><li><strong>Essential Web Design com HTML, CSS e Javascript from Scratch</strong> (Vanilla JS to Browsers). Dialeto Javascript mais essencial para fazer funcionar em qualquer lugar (<a href="https://www-archive.mozilla.org/js/language/E262-3.pdf">ES3</a>). Montagem de layout de landing pages e páginas mais comuns da web com <a href="https://getbootstrap.com/">Twitter Bootstrap</a>.</li></ul><ul id="31812c87-603f-40cb-8811-7a4c474f9027" class="bulleted-list"><li><strong>Functional &amp; Object Javascript</strong>. Dialeto mais moderno do Javascript (<a href="http://www.ecma-international.org/ecma-262/6.0/">ES2015</a>). É necessário para se codificar em <a href="https://reactjs.org/">React</a> e <a href="https://reactnative.dev/">React Native</a> e exigido ao se trabalhar com mobile.</li></ul><ul id="3a6f81e7-48bc-4bf9-95f1-685facd2f956" class="bulleted-list"><li><strong>Facebook React &amp; React Native</strong>. Criação de apps com Javascript para mobile. Dialeto Javascript ES2015. Publicação de apps com <a href="https://expo.io/">Expo</a>.</li></ul><ul id="22efafe0-64f6-4406-b040-8b1408d8c875" class="bulleted-list"><li><strong>Advanced Concepts</strong>: Layout e UX com <a href="https://www.figma.com/">Figma</a>.</li></ul></details></li></ul><ul id="73af058d-5802-4634-8d7b-8a1f111529ff" class="toggle"><li><details open=""><summary>Backend:</summary><ul id="bbbebe9f-6140-48ef-b88c-15d89f0b0439" class="bulleted-list"><li><strong>NodeJS</strong>: criação de APIs REST from Scratch e em Express.js. Dialeto Javascript mais moderno (<a href="http://www.ecma-international.org/ecma-262/6.0/">ES2015</a>). Conceitos de Cliente/Servidor e hospedagem de código. Um fullstack precisa saber rodar um servidor HTTP básico para fazer um app consultar um banco de dados, por exemplo.</li></ul><ul id="9ca40645-d447-44dc-ac94-6fd358f7409e" class="bulleted-list"><li><strong>SQL</strong>: compreensão de SQL para criação de bancos de dados e manutenção. A maioria das empresas não tem condições de manter profissionais exclusivos de bancos de dados e pedem um conhecimento em SQL como diferencial.</li></ul><ul id="40574c44-8d2c-4b69-bb24-7ca1459b51de" class="bulleted-list"><li><strong>Google Firebase</strong>: criação de backend útil para criação de painéis de dados em tempo real, como em <a href="https://medium.com/@everisBrasil/ux-em-tempos-de-covid-19-25e58b28c75e">rastreamento de doenças como a covid-19</a>.</li></ul></details></li></ul><ul id="5249f3b2-2947-4508-835a-fafca5f157f7" class="toggle"><li><details open=""><summary>Advanced Concepts</summary><ul id="7cbdbe85-e8df-40d1-bf89-a58638cd9c8e" class="bulleted-list"><li><strong>Cloud/DevOps (Hacking Skills)</strong>:<ul id="de10448e-83b3-4617-8cd9-781d07dd2a01" class="bulleted-list"><li>Tecnologias de hospedagem de código em Cloud como Google Cloud e AWS com uso da AWS EC2, S3, Lambda, além de Google Cloud Functions.</li></ul><p id="45bd7bc5-f557-40af-ab72-b355eba48d18" class="">
+</p></li></ul></details></li></ul></li></ul></div></article></body></html>
